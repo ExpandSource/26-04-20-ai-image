@@ -1,0 +1,194 @@
+/* ===================================================================
+ * 26-04-20 AI 이미지 강의 커스텀 스타일
+ * Pretendard + D2Coding · 강의 색상 체계
+ * =================================================================== */
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css');
+@import url('https://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css');
+
+/* ── 디자인 토큰 ── */
+:root {
+  --lec-primary:  #2563eb;   /* blue-600  — 메인 강조 */
+  --lec-accent:   #ea580c;   /* orange-600 — 보조 포인트 (h3·code·인용) */
+  --lec-heading:  #1e3a5f;   /* 거의 네이비 — 제목 텍스트 */
+  --lec-muted:    #64748b;   /* slate-500 */
+  --lec-surface:  #f1f5f9;   /* slate-100 */
+  --lec-rule:     rgba(37, 99, 235, 0.25);
+}
+
+/* ── 기본 폰트 ── */
+.slidev-layout {
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* ── 컨텐츠 슬라이드 상단 패딩 축소 ── */
+.slidev-layout:not(.cover):not(.section):not(.end):not(.image) {
+  padding-top: 0.8rem;
+}
+
+/* ── H1 — 하단 구분선 + 네이비 ── */
+.slidev-layout:not(.cover):not(.section):not(.end):not(.image) h1 {
+  color: var(--lec-heading);
+  font-weight: 700;
+  font-size: 1.7rem;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-top: 0;
+  padding-bottom: 0.3em;
+  margin-bottom: 0.7em;
+  border-bottom: 2px solid var(--lec-primary);
+}
+
+/* ── H2 — 블루 계열 ── */
+.slidev-layout:not(.cover):not(.section):not(.end) h2 {
+  color: var(--lec-primary);
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+/* ── H3 — 왼쪽 오렌지 바 ── */
+.slidev-layout h3 {
+  border-left: 3px solid var(--lec-accent);
+  padding-left: 0.55em;
+  color: var(--lec-heading);
+  font-weight: 600;
+  margin-top: 1em;
+}
+
+/* ── Bold (strong) — 블루 강조 ── */
+.slidev-layout:not(.cover):not(.section):not(.end) strong {
+  color: var(--lec-primary);
+  font-weight: 700;
+}
+
+/* ── 인라인 코드 — 오렌지 배경 ── */
+.slidev-layout :not(pre) > code {
+  background: rgba(234, 88, 12, 0.09);
+  color: var(--lec-accent);
+  padding: 0.1em 0.38em;
+  border-radius: 4px;
+  font-family: 'D2Coding', 'D2Coding ligature', ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.9em;
+}
+
+/* ── 코드 블록 ── */
+.slidev-layout code,
+.slidev-layout pre {
+  font-family: 'D2Coding', 'D2Coding ligature', ui-monospace, SFMono-Regular, monospace;
+}
+
+/* ── 테이블 ── */
+.slidev-layout table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.88em;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+}
+
+.slidev-layout table th {
+  background: var(--lec-primary);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.5em 0.8em;
+  text-align: left;
+  letter-spacing: -0.01em;
+}
+
+.slidev-layout table td {
+  padding: 0.4em 0.8em;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+.slidev-layout table tbody tr:nth-child(even) td {
+  background: var(--lec-surface);
+}
+
+.slidev-layout table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── 인용 블록 ── */
+.slidev-layout blockquote {
+  border-left: 4px solid var(--lec-accent);
+  padding: 0.4em 0.9em;
+  color: var(--lec-muted);
+  background: rgba(234, 88, 12, 0.05);
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+}
+
+/* ── 리스트 ── */
+.slidev-layout ul > li,
+.slidev-layout ol > li {
+  line-height: 1.6;
+  margin: 0.2em 0;
+}
+
+/* ── section 레이아웃 내부 bold 원래대로 ── */
+.slidev-layout.section strong,
+.slidev-layout.cover strong,
+.slidev-layout.end strong {
+  color: inherit;
+}
+
+/* ── Mermaid 다이어그램 — 슬라이드 내부 맞춤 ── */
+.slidev-layout .mermaid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.slidev-layout .mermaid svg {
+  max-width: 100%;
+  max-height: 260px;
+  height: auto !important;
+  width: auto !important;
+  font-family: 'Pretendard Variable', Pretendard, sans-serif !important;
+}
+
+/* ── two-cols 컬럼 간격 ── */
+.slidev-layout.two-cols > div + div {
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--lec-rule);
+}
+
+/* ── Cover 슬라이드 ── */
+.slidev-layout.cover {
+  background: linear-gradient(135deg, #0f2a4a 0%, #1e3a5f 55%, #2563eb 100%) !important;
+}
+.slidev-layout.cover h1 {
+  color: #ffffff;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+.slidev-layout.cover h2 {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+  margin-top: 0.5em;
+}
+
+/* ── Section 슬라이드 ── */
+.slidev-layout.section {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%) !important;
+}
+.slidev-layout.section h1 {
+  color: #ffffff;
+  font-size: 2.8rem;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.28);
+  padding-bottom: 0.3em;
+}
+.slidev-layout.section h2 {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+  margin-top: 0.5em;
+}
