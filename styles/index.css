@@ -155,9 +155,16 @@
   border-left: 1px solid var(--lec-rule);
 }
 
+/* ── image-right / image-left — contain (no crop) ── */
+.slidev-layout.image-right img,
+.slidev-layout.image-left img {
+  object-fit: contain !important;
+}
+
 /* ── Cover 슬라이드 ── */
 .slidev-layout.cover {
   background: linear-gradient(135deg, #0f2a4a 0%, #1e3a5f 55%, #2563eb 100%) !important;
+  position: relative;
 }
 .slidev-layout.cover h1 {
   color: #ffffff;
@@ -171,6 +178,24 @@
   letter-spacing: -0.01em;
   font-weight: 400;
   margin-top: 0.5em;
+}
+
+/* ── Cover — 콜라주 배경 이미지 ── */
+.slidev-layout.cover.cover-image {
+  background-image: url('/images/0.0-cover-collage.png') !important;
+  background-size: cover;
+  background-position: center;
+}
+.slidev-layout.cover.cover-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 18, 38, 0.68);
+  z-index: 0;
+}
+.slidev-layout.cover.cover-image > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Section 슬라이드 ── */
