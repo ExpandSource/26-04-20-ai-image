@@ -506,7 +506,7 @@ Gemini, ChatGPT 둘 다 잘한다. 더 정교하게 하고 싶으면:
 자연광, 살짝 위에서 내려다보는 구도, 따뜻한 색감.
 ```
 
-![제품 합성 before (원본)](./public/images/6.2-product-before.png)
+![제품 합성 before (원본)](./public/images/6.2-product-bottle.png)
 ![제품 합성 after (배경 합성)](./public/images/6.2-product-after.png)
 
 > before: 흰 배경의 제품 샷. after: 자연스러운 라이프스타일 배경 속의 동일 제품.
@@ -528,7 +528,7 @@ Gemini, ChatGPT 둘 다 잘한다. 더 정교하게 하고 싶으면:
 전통 한식당 분위기의 조명과 구도로.
 ```
 
-![음식 소품 추가 — before](./public/images/6.3-food-before.png)
+![음식 소품 추가 — before](./public/images/6.3-food-before.jpeg)
 ![음식 소품 추가 — after](./public/images/6.3-food-after.png)
 
 **팁** — "그림자 방향을 통일"을 덧붙이면 합성이 훨씬 자연스럽다.
@@ -550,7 +550,7 @@ Gemini, ChatGPT 둘 다 잘한다. 더 정교하게 하고 싶으면:
 - 비율: 정사각형
 ```
 
-![로고 시안 4종](./public/images/6.4-logos-4-variants.png)
+![로고 시안 4종](./public/images/6-4-logo2x2.jpeg)
 
 > 생성 가이드 — 2×2 그리드. 동일 브랜드명을 네 가지 스타일(미니멀·빈티지·모던·핸드드로잉)로.
 
@@ -571,8 +571,8 @@ Gemini, ChatGPT 둘 다 잘한다. 더 정교하게 하고 싶으면:
 장소는 도심 골목. 부드러운 오후 햇살. 세미 측면 반신샷.
 ```
 
-![모델 컷 — 제품만 / 모델 착용](./public/images/6.5-model-before.png)
-![모델 컷 — 착용 결과](./public/images/6.5-model-after.png)
+![모델 컷 — 제품만 / 모델 착용](./public/images/tshirt.jpeg)
+![모델 컷 — 착용 결과](./public/images/tshirt-model.jpeg)
 
 **팁** — 의류는 **주름·광택**을 지시(예: "자연스러운 면 소재 주름")해야 마네킹 느낌을 피한다.
 
@@ -593,8 +593,8 @@ Gemini, ChatGPT 둘 다 잘한다. 더 정교하게 하고 싶으면:
 - 구도: 45도 각도, 전신이 보이게
 ```
 
-![스케치 → 3D](./public/images/6.6-sketch-before.png)
-![스케치 → 3D 렌더 결과](./public/images/6.6-sketch-after.png)
+![스케치 → 3D](./public/images/6-6-sketch.jpeg)
+![스케치 → 3D 렌더 결과](./public/images/6-6-after.jpeg)
 
 **팁** — 재질 키워드를 **두 개 이상** 지정하면 현실감이 확 올라간다("오크 원목 + 검은 가죽").
 
@@ -614,7 +614,7 @@ Gemini, ChatGPT 둘 다 잘한다. 더 정교하게 하고 싶으면:
 - 창문은 이중선으로 표시
 ```
 
-![CAD 평면도](./public/images/6.7-cad-floorplan.png)
+![CAD 평면도](./public/images/6-8-before.jpeg)
 
 **팁** — 정확한 **치수**가 필요한 경우에는 AI 출력을 **초안**으로만 쓰고, 실제 설계는 AutoCAD·SketchUp 등 전용 도구에서 마무리한다. AI는 **아이디어 발산**까지가 최적 용도.
 
@@ -634,8 +634,8 @@ Gemini, ChatGPT 둘 다 잘한다. 더 정교하게 하고 싶으면:
 - 따뜻한 조명, 파스텔 컬러 팔레트
 ```
 
-![2D 평면도](./public/images/6.8-floor-before.png)
-![3D 아이소메트릭](./public/images/6.8-iso-after.png)
+![2D 평면도](./public/images/6-8-before.jpeg)
+![3D 아이소메트릭](./public/images/6-8-after.jpeg)
 
 **팁** — 파스텔 팔레트를 지정하면 **도면의 기능**과 **인테리어의 감각**이 함께 살아난다.
 
@@ -654,8 +654,8 @@ Gemini, ChatGPT 둘 다 잘한다. 더 정교하게 하고 싶으면:
 배경은 단순한 파스텔 블루로.
 ```
 
-![실사 → 만화](./public/images/6.9-portrait-before.png)
-![실사 → 만화 결과](./public/images/6.9-portrait-after.png)
+![실사 → 만화](./public/images/gir-with-pearl-earring.jpg)
+![실사 → 만화 결과](./public/images/hanbok-girl-with-pearl-earring.jpeg)
 
 **팁** — **스타일 키워드를 정확히** ("픽사 스타일", "지브리 스타일", "1990년대 디즈니 스타일"). 모호한 "만화풍"은 결과가 들쭉날쭉하다.
 
@@ -674,7 +674,7 @@ Gemini, ChatGPT 둘 다 잘한다. 더 정교하게 하고 싶으면:
 배경: 흰색. 각 컷에 작은 레이블.
 ```
 
-![캐릭터 시트 6컷](./public/images/6.10-charsheet.png)
+![캐릭터 시트 6컷](./public/images/hanbok-sheet.png)
 
 **팁** — 한 번에 6컷을 시도하기보다, 먼저 **정면 1컷**으로 디자인을 확정한 뒤 "같은 캐릭터로 측면을..." 식으로 이어가면 일관성이 높아진다.
 
@@ -692,8 +692,6 @@ Gemini, ChatGPT 둘 다 잘한다. 더 정교하게 하고 싶으면:
 해상도: 64×64 느낌으로, 제한된 팔레트(16색).
 ```
 
-![원본 → 픽셀 아트](./public/images/6.11-pixel-before.png)
-![픽셀 아트 결과](./public/images/6.11-pixel-after.png)
 
 **팁** — 팔레트를 제한(`16색`, `8색`)하라고 지시하면 진짜 레트로 감성이 나온다.
 
@@ -712,7 +710,7 @@ Gemini, ChatGPT 둘 다 잘한다. 더 정교하게 하고 싶으면:
 한자 대신 한글 풍의 그림 문자 여백.
 ```
 
-![민화 스타일 예시](./public/images/6.12-minhwa.png)
+![민화 스타일 예시](./public/images/monarisa-after.jpeg)
 
 **팁** — "조선 민화", "까치호랑이", "진채"처럼 **문화 특정 키워드**가 들어가야 결과가 살아난다. 단순히 "한국 전통 스타일"은 범위가 넓어 평범해진다.
 
@@ -733,8 +731,8 @@ Gemini, ChatGPT 둘 다 잘한다. 더 정교하게 하고 싶으면:
 - 원본의 빛바랜 느낌은 살짝 남기기
 ```
 
-![복원 전 / 후](./public/images/6.13-restore-before.png)
-![복원 결과](./public/images/6.13-restore-after.png)
+![복원 전 / 후](./public/images/6-13-before-독립운동가황병길선생.jpeg)
+![복원 결과](./public/images/6-13-after.jpeg)
 
 **팁** — "지나치게 또렷하지 않게", "원본의 질감 유지"를 꼭 넣는다. 과도하게 선명해지면 **다른 얼굴**이 될 수 있다. 복원은 보수적으로.
 
@@ -756,7 +754,7 @@ Gemini, ChatGPT 둘 다 잘한다. 더 정교하게 하고 싶으면:
 하단에 "© 한디카페" 작게.
 ```
 
-![인포그래픽 예시](./public/images/6.14-infographic.png)
+![인포그래픽 예시](./public/images/6-14-infographic.jpeg)
 
 **팁** — 한글 텍스트 렌더링 시 **짧고 정확한 문구**를 넘긴다. 긴 문장은 글자가 깨지기 쉽다.
 
