@@ -119,6 +119,12 @@ flowchart LR
 -->
 
 ---
+layout: image
+image: /images/1.1-recognition-vs-generation.png
+backgroundSize: contain
+---
+
+---
 
 # 이미지 생성 AI의 세 가지 방식
 
@@ -167,7 +173,7 @@ flowchart LR
 
 <div class="mt-6 opacity-80 text-sm">
 
-서비스 이름이 뉴스에 나올 때 → **"어느 방식인가"**를 물어보자
+서비스 이름이 뉴스에 나올 때 → **어느 방식인가**를 물어보자
 
 </div>
 
