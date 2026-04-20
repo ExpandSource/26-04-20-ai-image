@@ -1,42 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI로 고퀄리티 이미지와 콘텐츠 생성하기 - Slidev</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pretendard:wght@200;400;600&family=D2Coding:wght@200;400;600&display=swap" type="text/css">
-<link rel="preload" as="image" href="/images/1.1-recognition-vs-generation.png">
-<link rel="preload" as="image" href="/images/1.2-diffusion-steps.png">
-<link rel="preload" as="image" href="/images/2.1-services-landscape.png">
-<link rel="preload" as="image" href="/images/2.3-cost-comparison.png">
-<link rel="preload" as="image" href="/images/hanbok-original.png">
-<link rel="preload" as="image" href="/images/hanbok-glasses.png.png">
-<link rel="preload" as="image" href="/images/hanbok-blue-hair.png">
-<link rel="preload" as="image" href="/images/hanbok-4cut.png">
-<link rel="preload" as="image" href="/images/hanbok-sheet.png">
-<link rel="preload" as="image" href="/images/6-4-logo2x2.jpeg">
-<link rel="preload" as="image" href="/images/6-4-logo.jpeg">
-<link rel="preload" as="image" href="/images/logo-building.jpeg">
-<link rel="preload" as="image" href="/images/tshirt.jpeg">
-<link rel="preload" as="image" href="/images/6-8-after.jpeg">
-<link rel="preload" as="image" href="/images/6-8-after2.jpeg">
-<link rel="preload" as="image" href="/images/6-8-after3.jpeg">
-<link rel="preload" as="image" href="/images/6-14-infographic.jpeg">
-<link rel="icon" href="https://cdn.jsdelivr.net/gh/slidevjs/slidev/assets/favicon.png">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta property="slidev:version" content="52.14.2">
-<meta name="description" content="&quot;2026년 월요 AI 강의 시리즈 2회차 (2026-04-20).\n원본: lecture.md (One Source)\n&quot;">
-<meta name="author" content="&quot;ExpandSource&quot;">
-<meta property="og:title" content="AI로 고퀄리티 이미지와 콘텐츠 생성하기 - Slidev">
-<meta property="og:description" content="&quot;2026년 월요 AI 강의 시리즈 2회차 (2026-04-20).\n원본: lecture.md (One Source)\n&quot;">  <script type="module" crossorigin src="/assets/index-ESlJaJHD.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/modules/vue-DqhaSzHS.js">
-  <link rel="modulepreload" crossorigin href="/assets/modules/shiki-DUE7OCyz.js">
-  <link rel="stylesheet" crossorigin href="/assets/modules/shiki-UqVAgQbi.css">
-  <link rel="stylesheet" crossorigin href="/assets/index-BqAYYtwu.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI로 고퀄리티 이미지와 콘텐츠 생성하기 — 2026-04-20</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, system-ui, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 32px rgba(37,99,235,0.10);
+    max-width: 560px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .hero {
+    background: linear-gradient(135deg, #0f2a4a 0%, #1e3a5f 55%, #2563eb 100%);
+    padding: 2.5rem 2rem 2rem;
+    color: #fff;
+  }
+  .hero .label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    margin-bottom: 0.6rem;
+  }
+  .hero h1 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+  }
+  .hero .meta {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    opacity: 0.72;
+  }
+  .links {
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: filter 0.15s, transform 0.1s;
+  }
+  .btn:hover { filter: brightness(1.07); transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+  .btn-primary {
+    background: #2563eb;
+    color: #fff;
+  }
+  .btn-secondary {
+    background: #f1f5f9;
+    color: #1e3a5f;
+    border: 1px solid #e2e8f0;
+  }
+  .btn-accent {
+    background: #fff7ed;
+    color: #c2410c;
+    border: 1px solid #fed7aa;
+  }
+  .btn .icon { font-size: 1.25rem; flex-shrink: 0; }
+  .btn .desc { font-size: 0.75rem; font-weight: 400; opacity: 0.7; margin-top: 0.1rem; }
+  .btn-text { display: flex; flex-direction: column; }
+  .footer {
+    padding: 1rem 2rem;
+    border-top: 1px solid #f1f5f9;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-align: center;
+  }
+</style>
 </head>
 <body>
-  <div id="app"></div>
-  <div id="mermaid-rendering-container"></div>
-  
+<div class="card">
+  <div class="hero">
+    <div class="label">월요 AI 강의 · 2회차 · 2026-04-20</div>
+    <h1>AI로 고퀄리티 이미지와<br>콘텐츠 생성하기</h1>
+    <div class="meta">생성 · 편집 · 합성 — 이미지 AI의 실전 감각</div>
+  </div>
+  <div class="links">
+    <a class="btn btn-primary" href="slides/">
+      <span class="icon">▶</span>
+      <span class="btn-text">
+        슬라이드 보기
+        <span class="desc">Slidev 인터랙티브 프레젠테이션</span>
+      </span>
+    </a>
+    <a class="btn btn-secondary" href="lecture.html">
+      <span class="icon">📄</span>
+      <span class="btn-text">
+        강의 자료 (Article)
+        <span class="desc">전체 내용 · 이미지 포함 HTML 문서</span>
+      </span>
+    </a>
+    <a class="btn btn-accent" href="slides.pdf" download>
+      <span class="icon">⬇</span>
+      <span class="btn-text">
+        슬라이드 PDF 다운로드
+        <span class="desc">오프라인 보기용</span>
+      </span>
+    </a>
+  </div>
+  <div class="footer">ExpandSource · @카페한디 · 월요 AI 시리즈</div>
+</div>
 </body>
 </html>
