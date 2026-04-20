@@ -102,7 +102,7 @@ layout: section
 
 </div>
 
-```mermaid
+```mermaid {scale: 0.8}
 flowchart LR
   A["이미지"] -->|인식 Recognition| B["텍스트 · 데이터"]
   C["텍스트 프롬프트"] -->|생성 Generation| D["이미지"]
@@ -181,7 +181,7 @@ flowchart LR
 
 두 AI가 서로를 이기려 훈련하며 실력이 올라간다
 
-```mermaid
+```mermaid {scale: 0.75}
 flowchart LR
   G["생성자\nGenerator"] -->|가짜 이미지 제출| D["판별자\nDiscriminator"]
   D -->|진짜·가짜 판별 결과| G
@@ -219,6 +219,7 @@ GAN의 핵심 직관: 위조지폐 만드는 사람 vs 감식하는 경찰. 둘 
 -->
 
 ---
+    
 
 # Diffusion — 안개 속에서 형체가 드러난다
 
@@ -244,7 +245,7 @@ GAN의 핵심 직관: 위조지폐 만드는 사람 vs 감식하는 경찰. 둘 
 
 <div>
 
-```mermaid
+```mermaid {scale: 0.7}
 flowchart TD
   N["순수 노이즈 🌫️"] --> S1["스텝 1-15\n형태 윤곽 등장"]
   S1 --> S2["스텝 16-35\n디테일 추가"]
@@ -266,6 +267,7 @@ flowchart TD
 ---
 layout: image-right
 image: /images/1.2-diffusion-steps.png
+backgroundSize: contain
 ---
 
 # Diffusion 단계별 시각화
@@ -301,7 +303,7 @@ Diffusion은 **여러 번의 수정**으로 완성한다
 
 텍스트를 한 글자씩 예측하듯, 이미지를 **작은 조각(토큰) 단위로** 순서대로 채운다
 
-```mermaid
+```mermaid {scale: 0.78}
 flowchart LR
   P["프롬프트\n'한복 입은 소녀'"] --> T1["토큰 1\n배경색·구도"]
   T1 --> T2["토큰 2\n인물 위치"]
@@ -487,6 +489,7 @@ Automatic1111 · ComfyUI · Civitai.
 ---
 layout: image-right
 image: /images/2.3-cost-comparison.png
+backgroundSize: contain
 ---
 
 # 구독 · 크레딧 · 무료
@@ -653,7 +656,7 @@ Adobe · Microsoft · OpenAI 업계 표준.
 
 ::right::
 
-```mermaid
+```mermaid {scale: 0.65}
 flowchart TD
   A["AI로 이미지 생성"] --> B["워터마크 삽입\nSynthID / C2PA 서명"]
   B --> C["배포 · 공유"]
@@ -930,6 +933,7 @@ afterLabel: 다이나믹 푸드포토
 ---
 layout: image-right
 image: /images/6-4-logo2x2.jpeg
+backgroundSize: contain
 ---
 
 # 로고 · 간판 만들기
@@ -1180,6 +1184,7 @@ afterLabel: 복원 후
 ---
 layout: image-right
 image: /images/6-14-infographic.jpeg
+backgroundSize: contain
 ---
 
 # 인포그래픽 만들기

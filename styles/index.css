@@ -136,6 +136,7 @@
 }
 
 /* ── Mermaid 다이어그램 — 슬라이드 내부 맞춤 ── */
+/* 테마/스케일: setup/mermaid.ts + 블록별 {scale:} 옵션으로 제어 */
 .slidev-layout .mermaid {
   display: flex;
   justify-content: center;
@@ -144,7 +145,6 @@
 }
 .slidev-layout .mermaid svg {
   max-width: 100%;
-  max-height: 240px;
   height: auto !important;
   width: auto !important;
   overflow: visible;
@@ -157,18 +157,8 @@
   border-left: 1px solid var(--lec-rule);
 }
 
-/* ── image-right / image-left — contain (no crop) ── */
-/* Slidev renders the image as background-image on a div, so we override background-size */
-.slidev-layout.image-right img,
-.slidev-layout.image-left img {
-  object-fit: contain !important;
-}
-.slidev-layout.image-right > :last-child,
-.slidev-layout.image-left > :first-child {
-  background-size: contain !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-}
+/* ── image-right — contain: 각 슬라이드 frontmatter에 backgroundSize: contain 명시 ── */
+/* CSS override는 inline style보다 우선순위가 낮아 적용 불가 */
 
 /* ── Cover 슬라이드 ── */
 .slidev-layout.cover {
