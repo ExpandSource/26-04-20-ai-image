@@ -7,52 +7,71 @@ defineProps({
 })
 </script>
 
+<!--
+  Split layout:
+  ┌──────────────┬──────────────┐
+  │ text content │              │
+  │  (slot)      │  after image │
+  ├──────────────│  (tall)      │
+  │ before image │              │
+  └──────────────┴──────────────┘
+-->
 <template>
   <div class="slidev-layout compare">
-    <div class="cmp-body">
-      <slot />
-    </div>
-    <div class="cmp-panels">
-      <div class="cmp-panel">
-        <span class="cmp-badge cmp-before">{{ beforeLabel }}</span>
+    <!-- left: content (top) + before (bottom) -->
+    <div class="cmp-left">
+      <div class="cmp-content">
+        <slot />
+      </div>
+      <div class="cmp-before-area">
+        <span class="cmp-badge cmp-badge-before">{{ beforeLabel }}</span>
         <img v-if="before" :src="before" class="cmp-img" alt="before" />
         <div v-else class="cmp-empty">이미지 준비 중</div>
       </div>
-      <div class="cmp-panel">
-        <span class="cmp-badge cmp-after">{{ afterLabel }}</span>
-        <img v-if="after" :src="after" class="cmp-img" alt="after" />
-        <div v-else class="cmp-empty">이미지 준비 중</div>
-      </div>
+    </div>
+    <!-- right: after image full height -->
+    <div class="cmp-right">
+      <span class="cmp-badge cmp-badge-after">{{ afterLabel }}</span>
+      <img v-if="after" :src="after" class="cmp-img" alt="after" />
+      <div v-else class="cmp-empty">이미지 준비 중</div>
     </div>
   </div>
 </template>
 
 <style scoped>
 .compare {
-  display: flex;
-  flex-direction: column;
-  padding: 0.8rem 2.2rem 0.8rem !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+  padding: 0.8rem 2rem 0.8rem !important;
   height: 100%;
   box-sizing: border-box;
-  gap: 0.5rem;
 }
 
-.cmp-body {
+.cmp-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.cmp-content {
   flex-shrink: 0;
 }
 
-.cmp-panels {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
+.cmp-before-area {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
   min-height: 0;
 }
 
-.cmp-panel {
+.cmp-right {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.25rem;
   min-height: 0;
 }
 
@@ -68,12 +87,12 @@ defineProps({
   font-family: 'D2Coding', monospace;
 }
 
-.cmp-before {
+.cmp-badge-before {
   background: #64748b;
   color: #fff;
 }
 
-.cmp-after {
+.cmp-badge-after {
   background: #2563eb;
   color: #fff;
 }
@@ -98,5 +117,6 @@ defineProps({
   color: #94a3b8;
   font-size: 0.8rem;
   border: 2px dashed #cbd5e1;
+  min-height: 50px;
 }
 </style>

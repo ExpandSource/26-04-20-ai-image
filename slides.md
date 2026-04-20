@@ -228,11 +228,11 @@ GAN의 핵심 직관: 위조지폐 만드는 사람 vs 감식하는 경찰. 둘 
 
 **두 단계의 학습**
 
-**[학습]** 실제 이미지에 노이즈를 조금씩 더해 기록
+**[학습]** 실제 이미지에 노이즈를 조금씩 더해 기록  
 → "이미지가 어떻게 망가지는지" 학습
 
-**[생성]** 순수한 노이즈에서 출발
-→ 프롬프트를 나침반 삼아 **역방향으로 복원**
+**[생성]** 순수한 노이즈에서 출발  
+→ 프롬프트를 나침반 삼아 **역방향으로 복원**  
 → 20-50 스텝 반복
 
 **단계가 있다 = 개입이 가능하다**
@@ -397,18 +397,14 @@ layout: section
 ## 어디서 쓸 것인가
 
 ---
-layout: image
-image: /images/2.1-services-landscape.png
-class: text-center
----
 
-<div class="absolute top-6 left-0 right-0 text-center">
+# 2026 이미지 AI 서비스 지형
 
-## 2026 이미지 AI 서비스 지형
-
+<div class="flex justify-center items-center mt-2">
+<img src="/images/2.1-services-landscape.png" style="max-height:360px;object-fit:contain;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.10);" />
 </div>
 
-<div class="absolute bottom-6 left-0 right-0 text-center opacity-80">
+<div class="mt-2 text-center text-sm opacity-70">
 
 이 시장은 **6개월 단위**로 판이 뒤집힌다
 
@@ -426,29 +422,29 @@ class: text-center
 
 <div>
 
-**🟢 OpenAI**
-DALL·E → **GPT Image** (ChatGPT 안)
+**🟢 OpenAI**  
+DALL·E → **GPT Image** (ChatGPT 안)  
 텍스트 렌더링 최강. 대화형 편집.
 
-**🔵 Google**
-Imagen → Gemini → **Nano Banana**
+**🔵 Google**  
+Imagen → Gemini → **Nano Banana**  
 속도·일관성. 한국어 자연스러움.
 
-**🟣 Midjourney**
-심미성의 대명사. 웹 + Discord.
+**🟣 Midjourney**  
+심미성의 대명사. 웹 + Discord.  
 포스터·아트 작업에 강함.
 
 </div>
 
 <div>
 
-**🟡 Stable Diffusion**
-오픈소스. 로컬 설치 가능.
-Automatic1111 · ComfyUI · Civitai.
+**🟡 Stable Diffusion**  
+오픈소스. 로컬 설치 가능.  
+Automatic1111 · ComfyUI · Civitai.  
 완전한 제어 + 무제한 생성.
 
-**🔴 Seedream (ByteDance)**
-중국어권·인물 합성 강점.
+**🔴 Seedream (ByteDance)**  
+중국어권·인물 합성 강점.  
 한국에서는 간접 접근.
 
 </div>
@@ -467,26 +463,25 @@ Automatic1111 · ComfyUI · Civitai.
 
 ---
 
-# 서비스 비교
+# 작업 목적별 추천 서비스
 
-| 항목 | ChatGPT | Gemini | Midjourney | SD (로컬) |
-|---|---|---|---|---|
-| 접근 난이도 | 쉬움 | 쉬움 | 쉬움 | 어려움 |
-| 심미성 | 상 | 상 | **최상** | 모델 따라 |
-| 사실감 | 상 | **최상** | 상 | 상 |
-| 텍스트 렌더링 | **최상** | 최상 | 중 | 중 |
-| 편집 (inpainting) | 상 | **최상** | 중 | **최상** |
-| 캐릭터 일관성 | 상 | **최상** | 상 | **최상** |
-| 한국어 프롬프트 | 상 | **최상** | 중 | 중 |
+| 하고 싶은 것 | 추천 서비스 |
+|---|---|
+| 한글 로고 · 간판 · 인포그래픽 | **ChatGPT (GPT Image)** · Nano Banana |
+| 사실적 사진 합성 · 인물 편집 | **Gemini** (대화형 편집 강점) |
+| 포스터 · 일러스트 · 감성 이미지 | **Midjourney** |
+| 캐릭터 일관성 · 시리즈 작업 | **Nano Banana** · ChatGPT |
+| 무제한 생성 · 스타일 완전 제어 | **Stable Diffusion** (로컬 설치) |
+| 빠른 첫 시도 (무료) | Gemini · Bing Image Creator |
 
-<div class="mt-4 text-sm opacity-70">
+<div class="mt-5 p-3 bg-blue-50 border border-blue-200 rounded text-sm">
 
-Midjourney만 영어 프롬프트가 조금 더 정확. 나머지는 한국어 그대로 통한다.
+처음엔 **Gemini로 시작** → 특정 목적이 생기면 전문 서비스 추가
 
 </div>
 
 <!--
-"가격"은 다음 슬라이드에서 별도. 여기선 품질·기능만 비교.
+서비스별 점수 매기기보다 "어떤 작업에 어떤 서비스" 매칭이 더 실용적.
 -->
 
 ---
@@ -581,7 +576,7 @@ layout: section
 - 약관에 따라 **모델 학습에 사용될 수 있음**
 - 일부 서비스는 오용 감지용 사람 검토
 
-<div class="mt-6 p-4 bg-orange-50 border-l-4 border-orange-400 rounded">
+<div class="mt-6 pl-4 pr-4 py-3 bg-orange-50 border-l-4 border-orange-400 rounded">
 
 **실무 원칙 3가지**
 
@@ -769,7 +764,6 @@ Gemini 대화형 편집:
 ```
 
 ChatGPT: 이미지 클릭 → 영역 선택 → 지시
-로컬 SD: Automatic1111 Inpaint 탭
 
 <!--
 핵심 유지, 특정 부분만 변경. 반복 개선의 기본기.
@@ -857,7 +851,7 @@ layout: section
 
 <div>
 <img src="/images/hanbok-4cut.png" class="rounded shadow w-full" style="object-fit:contain;max-height:200px;" />
-<div class="mt-1 text-slate-500">4컷 사진관</div>
+<div class="mt-1 text-slate-500">4컷 만화</div>
 </div>
 
 <div>
