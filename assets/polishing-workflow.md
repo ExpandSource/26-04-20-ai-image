@@ -11,7 +11,8 @@
 |---|---|
 | lecture.md | 완성 (One Source) |
 | slides.md | 초안 완성 (전체 슬라이드 구조·내용 확정) |
-| public/images/ | 실제 이미지 파일 채워짐 (또는 placeholder 경로 확정) |
+| `assets/placeholders.md` | 자산 매니페스트 작성 완료 (§7 참조) |
+| public/images/ · public/audio/ | 실제 파일 채워짐 (또는 placeholder 경로 확정) |
 | 로컬 dev 서버 | `bun run dev` 정상 기동 확인 |
 
 ---
@@ -93,21 +94,102 @@
 
 ## 5. 배포·PDF 워크플로우 (다음 단계)
 
+### 산출물 위치 (Makefile v0.4부터)
+
+모든 산출물이 강의 폴더 안에 모임. 폴더가 self-contained:
+
+```
+lectures/<lecture-slug>/
+├── dist/                ← Slidev SPA (slidev-html 빌드 결과)
+└── out/
+    ├── lecture.html         ← Pandoc article HTML
+    ├── lecture.pdf          ← Pandoc article PDF
+    └── slides.pdf           ← Slidev export PDF
+```
+
+`dist/` `out/` 모두 강의 폴더의 `.gitignore`에 들어감.
+
+### 빌드 명령
+
 ```bash
-# 모노레포 루트에서 실행
-make slidev-html LECTURE=lectures/26-04-20-ai-image   # dist/ → out/ 복사
-make slidev-pdf  LECTURE=lectures/26-04-20-ai-image   # Playwright PDF
-make article-html LECTURE=lectures/26-04-20-ai-image  # lecture.md → HTML
-make article-pdf  LECTURE=lectures/26-04-20-ai-image  # lecture.md → PDF
+# 모노레포 루트에서 실행 (Makefile은 루트에 있음)
+make slidev-html  LECTURE=lectures/<lecture-slug>   # → $(LECTURE)/dist/
+make slidev-pdf   LECTURE=lectures/<lecture-slug>   # → $(LECTURE)/out/slides.pdf
+make article-html LECTURE=lectures/<lecture-slug>   # → $(LECTURE)/out/lecture.html
+make article-pdf  LECTURE=lectures/<lecture-slug>   # → $(LECTURE)/out/lecture.pdf
+make clean        LECTURE=lectures/<lecture-slug>   # dist/ + out/ 삭제
 ```
 
 ### GitHub Pages 배포 (강의별 repo)
+
 ```bash
-cd lectures/26-04-20-ai-image
-bun run build -- --base /ai-image/     # GitHub repo slug에 맞춰 --base 지정
-# dist/ → gh-pages 브랜치 push
+cd lectures/<lecture-slug>
+bun run build -- --base /<repo-slug>/     # GitHub repo slug에 맞춰 --base 지정
+# dist/ + out/lecture.html + out/slides.pdf 를 gh-pages 브랜치로 push
+# (3종 모두 같은 폴더에 있어 한 번에 묶기 쉬움)
 ```
 
 ---
 
-*최종 확인: 2026-04-20 / @ExpandSource*
+## 6. Asset Manifest — `assets/placeholders.md` (3회차에서 도입)
+
+각 강의 폴더 안에 `assets/placeholders.md`를 둔다. 이 파일은 **두 역할**을 한다.
+
+1. **작업 가이드** — 작업자가 이미지·오디오·영상 placeholder를 채울 때 도구·프롬프트·캡처 시점을 안내.
+2. **Source 목록** — `lecture.md`·`slides.md`가 의존하는 외부 자산을 한눈에 보여주고 누락 점검도 겸함.
+
+### 작성 시점
+
+- Phase 3 (`slides.md`) 초안 완성 직후. **빌드 검증 전**에 한 번 작성.
+- 본문이 placeholder를 추가/제거할 때마다 갱신.
+
+### 권장 구조
+
+```
+1. 진행 상황 체크박스 (이미지·오디오 각각 미체크 목록)
+2. 카테고리별 정리
+   - 이미지 카테고리 1. 다이어그램·콜라주 (AI 생성)
+   - 이미지 카테고리 2. UI 스크린샷 (캡처)
+   - 이미지 카테고리 3. 결과 캡처 (서비스 결과물)
+   - 오디오 / 비디오 등
+3. 항목별 정보 — 파일명 / 사용 위치 (lecture.md·slides.md 라인) / 권장 프롬프트 또는 캡처 가이드
+4. 채운 후 검증 (grep으로 누락 점검 + 빌드 재실행 명령)
+5. 시간 견적
+```
+
+### 자동 추출 한 줄
+
+```bash
+# 이미지·오디오·비디오 placeholder 경로 한꺼번에 추출 (강의 폴더 안에서)
+grep -hoE "(/images|\./public/images|/audio|/videos?)/[a-z0-9.-]+\.(png|jpg|jpeg|webp|mp3|wav|m4a|mp4|webm)" \
+  slides.md lecture.md | sort -u
+```
+
+이 결과를 placeholders.md의 진행 체크박스와 비교하면 누락·잉여 즉시 발견. (확장자 패턴에 숫자가 들어가는 `mp3`·`mp4`를 명시적으로 포함해야 함 — `[a-z]+`만 쓰면 `3`/`4`가 잘린다)
+
+### 참조
+
+- 2회차에는 placeholders.md가 없었음 (사후 도입).
+- 3회차 `lectures/26-04-27-ai-music/assets/placeholders.md` 가 첫 적용 사례.
+
+---
+
+## 7. 오디오 embed 함정 (3회차에서 발견)
+
+`<audio controls src="/audio/...">` 태그를 **lecture.md**에 두면 Pandoc article-html 빌드가 실패한다.
+`--embed-resources` 옵션이 절대경로 `/audio/...`를 파일시스템 루트에서 찾기 때문.
+
+### 회피 패턴
+
+| 산출물 | 작성 방식 |
+|---|---|
+| `lecture.md` (Pandoc 대상) | 텍스트 안내만 — 예: `> 🎵 샘플 placeholder — public/audio/x.mp3` |
+| `slides.md` (Slidev 대상) | `<audio controls src="/audio/x.mp3"></audio>` (Slidev SPA가 정상 처리) |
+
+이 분리 원칙은 향후 비디오(`<video>`)·iframe 등 외부 자산 embed에도 동일하게 적용.
+
+placeholders.md(§6)에 오디오·비디오 항목을 등재할 때, "lecture.md = 텍스트 안내 / slides.md = embed 태그" 분리를 작성 시점부터 명시하면 위 함정에 다시 빠지지 않는다.
+
+---
+
+*최종 확인: 2026-04-25 / @ExpandSource (3회차에서 v0.4 갱신, Asset Manifest §6 추가)*
